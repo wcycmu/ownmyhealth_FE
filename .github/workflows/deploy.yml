@@ -1,0 +1,58 @@
+# .github/workflows/deploy.yml
+
+name: Deploy to GitHub Pages
+
+on:
+  # Runs on pushes targeting the main branch
+  push:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install esbuild
+        # Installs the esbuild bundler globally in the runner environment
+        run: npm install --global esbuild
+
+      - name: Build application
+        # This step creates a 'dist' directory with all the files needed for deployment
+        run: |
+          mkdir dist
+          # Build the TSX file into an ES Module, keeping CDN imports external
+          esbuild index.tsx --bundle --outfile=dist/index.js --format=esm --external:preact --external:preact/* --external:htm/*
+          # Copy the static HTML and CSS files to the dist folder
+          cp index.html dist/
+          cp index.css dist/
+          cp metadata.json dist/
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        # Uploads the 'dist' folder as an artifact to be used by the deploy step
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
