@@ -2,7 +2,7 @@
   "name": "ownmyhealth:-health-data-analyzer",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://your-github-username.github.io/ownmyhealth_FE",
+  "homepage": "https://wcycmu.github.io/ownmyhealth_FE",
   "type": "module",
   "scripts": {
     "dev": "vite",
