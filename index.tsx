@@ -10,14 +10,7 @@ const API_BASE_URL = 'http://localhost:8000';
 // A list of common Apple Health metrics.
 const METRIC_OPTIONS = [
     'HeartRate',
-    'StepCount',
-    'DistanceWalkingRunning',
-    'ActiveEnergyBurned',
-    'BasalEnergyBurned',
-    'HeartRateVariabilitySDNN',
-    'RestingHeartRate',
-    'VO2Max',
-    'BloodOxygenSaturation'
+    'spo2',
 ];
 
 // --- Type Definitions ---
