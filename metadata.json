@@ -1,0 +1,5 @@
+{
+  "name": "OwnMyHealth: Health Data Analyzer",
+  "description": "An application to upload and analyze Apple Health XML data. It provides insights, metric summaries, correlations between different health data points, and time series analysis with decomposition.",
+  "requestFramePermissions": []
+}
