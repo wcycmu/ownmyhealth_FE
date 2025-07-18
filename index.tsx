@@ -9,8 +9,8 @@ const API_BASE_URL = 'http://localhost:8000';
 
 // A list of common Apple Health metrics.
 const METRIC_OPTIONS = [
-    'HeartRate',
-    'spo2',
+    'HeartHealth',
+    'SleepHealth',
 ];
 
 // --- Type Definitions ---
