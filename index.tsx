@@ -22,7 +22,34 @@ interface InsightStats {
 }
 
 interface InsightsData {
-    insights: string;
+    insights: {
+        summary: {
+            current_fitness_level: string;
+            data_completeness: number;
+            last_updated: string;
+        };
+        risk_assessment: {
+            risk_score: number;
+            risk_category: string;
+            risk_color: string;
+            risk_factors: string[];
+            recommendations: string[];
+            assessment_date: string;
+        };
+        personalized_insights: {
+            insights: HeartHealthInsightItem[];
+            generated_at: string;
+        };
+        training_recommendations: {
+            recommendation: string;
+            intensity: string;
+            frequency: string;
+            duration: string;
+            zones_to_focus: string[];
+        };
+        ai_summary: string;
+        ai_explanation: string;
+    };
 }
 
 interface TimeSeriesPoint {
