@@ -22,7 +22,7 @@ interface InsightStats {
 }
 
 interface InsightsData {
-    insights: Record<string, InsightStats>;
+    insights: string;
 }
 
 interface TimeSeriesPoint {
