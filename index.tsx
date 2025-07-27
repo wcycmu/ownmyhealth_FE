@@ -175,7 +175,7 @@ const InsightsCard = () => {
             setError(null);
             try {
                 await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay for better UX
-                const response = await fetch(`${API_BASE_URL}/metrics/insights`);
+                const response = await fetch(`${API_BASE_URL}/metrics/insights?metrics=HeartHealth`);
                 if (!response.ok) throw new Error('Could not fetch insights. Is data loaded on the server?');
                 const data: InsightsData = await response.json();
                 setInsights(data);
