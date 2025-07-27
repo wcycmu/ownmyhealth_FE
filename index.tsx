@@ -22,8 +22,7 @@ interface InsightStats {
 }
 
 interface InsightsData {
-    summary: Record<string, InsightStats>;
-    correlations: Record<string, number>;
+    insights: Record<string, InsightStats>;
 }
 
 interface TimeSeriesPoint {
